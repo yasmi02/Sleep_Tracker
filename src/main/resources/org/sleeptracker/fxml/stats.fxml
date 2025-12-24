@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.sleeptracker.controllers.StatsController"
+            styleClass="root">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="20" bottom="20" left="30" right="30"/>
+            </padding>
+
+            <!-- BACK BUTTON EKLE -->
+            <Button text="← Back" onAction="#handleClose" styleClass="back-button"/>
+
+            <Label text="📊 Sleep Statistics" styleClass="app-title">
+                <font>
+                    <Font name="System" size="28"/>
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <ComboBox fx:id="periodComboBox" styleClass="mood-combo" prefWidth="150"/>
+        </HBox>
+    </top>
+
+    <!-- Center - Charts and Stats -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="25" styleClass="content-container">
+                <padding>
+                    <Insets top="30" bottom="30" left="40" right="40"/>
+                </padding>
+
+                <!-- Statistics Cards -->
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33.33" />
+                        <ColumnConstraints percentWidth="33.33" />
+                        <ColumnConstraints percentWidth="33.33" />
+                    </columnConstraints>
+
+                    <!-- Satır 0 -->
+                    <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                          prefHeight="120" minHeight="120" maxHeight="120">
+                        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+                        <Label text="Average Sleep" styleClass="stat-title"/>
+                        <Label fx:id="avgSleepLabel" text="0.0 hours" styleClass="stat-value"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                          prefHeight="120" minHeight="120" maxHeight="120">
+                        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+                        <Label text="Best Night" styleClass="stat-title"/>
+                        <Label fx:id="bestNightLabel" text="-" styleClass="stat-value"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                          prefHeight="120" minHeight="120" maxHeight="120">
+                        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+                        <Label text="Worst Night" styleClass="stat-title"/>
+                        <Label fx:id="worstNightLabel" text="-" styleClass="stat-value"/>
+                    </VBox>
+
+                    <!-- Satır 1 -->
+                    <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                          prefHeight="120" minHeight="120" maxHeight="120">
+                        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+                        <Label text="Total Entries" styleClass="stat-title"/>
+                        <Label fx:id="totalEntriesLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2"
+                          prefHeight="120" minHeight="120" maxHeight="120">
+                        <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+                        <Label text="Average Quality" styleClass="stat-title"/>
+                        <Label fx:id="avgQualityLabel" text="0 / 5 ⭐" styleClass="stat-value"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Sleep Hours Chart -->
+                <VBox styleClass="card" spacing="15">
+                    <padding>
+                        <Insets top="25" bottom="25" left="25" right="25"/>
+                    </padding>
+                    <Label text="Sleep Duration Over Time" styleClass="section-title"/>
+                    <LineChart fx:id="sleepHoursChart"
+                               legendVisible="false"
+                               prefHeight="300"
+                               styleClass="sleep-chart"
+                               style="-fx-stroke: #e895d8;">
+                        <xAxis>
+                            <CategoryAxis side="BOTTOM" label="Date"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis side="LEFT" label="Hours"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <!-- Quality Chart -->
+                <VBox styleClass="card" spacing="15">
+                    <padding>
+                        <Insets top="25" bottom="25" left="25" right="25"/>
+                    </padding>
+                    <Label text="Sleep Quality Over Time" styleClass="section-title"/>
+                    <BarChart fx:id="qualityChart"
+                              legendVisible="false"
+                              prefHeight="300"
+                              styleClass="quality-chart"
+                              style="-fx-bar-fill: #e895d8;">
+                        <xAxis>
+                            <CategoryAxis side="BOTTOM" label="Date"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis side="LEFT" label="Quality (1-5)" lowerBound="0" upperBound="5"/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+
+                <!-- Mood Analysis -->
+                <VBox styleClass="card" spacing="12">
+                    <padding>
+                        <Insets top="25" bottom="25" left="25" right="25"/>
+                    </padding>
+                    <Label text="😊 Mood vs Sleep Analysis" styleClass="section-title"/>
+                    <Label fx:id="moodAnalysisLabel"
+                           text="Add more entries to see analysis"
+                           styleClass="mood-analysis-text"
+                           wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

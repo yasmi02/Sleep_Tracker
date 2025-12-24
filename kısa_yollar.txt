@@ -1,0 +1,78 @@
+/* ==================== BAŞLIK ==================== */
+
+<!-- FXML BAŞLIĞI -->
+
+✅ ❌ = şunları kullan
+
+TELEFON BOYUTU = (600, 800) ya da (600, 850)
+
+BUTON İÇİN = styleClass="card"
+
+ <CheckBox fx:id="dayCheck" text="day" styleClass="day-check"/>
+
+ KULLANDACAĞIM PARLAK PEMBE RENK = linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-font-size: 24px; -fx-background-radius: 20; -fx-cursor: hand; -fx-min-width: 60; -fx-min-height: 60;"/>
+
+SCROLL ŞEYİ = <ScrollPane fitToWidth="true" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
+
+alignment="CENTER"
+
+İSTASİTSİK, BOYUTLARI VE YERİNİ YAPAY ZEKAYA SOR = <VBox styleClass="stat-card" spacing="xxxx" GridPane.columnIndex="xxxxx" GridPane.rowIndex="xxxxx"
+
+CSS İÇİN =  -fx-background-color: transparent;
+               -fx-background: transparent;
+
+ALARMCONTROLLER ÖRNEK = private String getSoundFileName(String soundName) {
+                                return switch(soundName) {
+                                    case "Classic Alarm" -> "classic_alarm";
+
+
+PUBLIC BOOLEAN VS PUBLIC VOID =
+ VOID Geri Dönüş Yok = public void selamVer() {
+                           System.out.println("Merhaba!");
+                           // Hiçbir şey return etmiyor
+                       }
+
+ BOOLEAn true/false Döndürür = public boolean yaşKontrol(int yaş) {
+                                   if (yaş >= 18) {
+                                       return true;   // reşit
+                                   } else {
+                                       return false;  // reşit değil
+                                   }
+
+
+HANDLESAVEENTRY OLAYI = 💾 butonuna tıkladığında çalışan method
+@FXML
+private void handleSaveEntry() {
+    // 1️⃣ Yeni bir xxxxx objesi oluştur
+    SleepEntry entry = new SleepEntry();
+    // 2️⃣ Kullanıcının girdiği tarihi al
+        entry.setDate(datePicker.getValue());
+     // 3️⃣ Yatma saatini al
+        LocalTime bedTime = LocalTime.of(
+            bedHourSpinner.getValue(),    // Örn: 23
+            bedMinuteSpinner.getValue()   // Örn: 30
+        );
+            entry.setBedTime(bedTime);  // 23:30
+
+     // 4️⃣ Kalkma saatini al
+         LocalTime wakeTime = LocalTime.of(
+             wakeHourSpinner.getValue(),   // Örn: 7
+             wakeMinuteSpinner.getValue()  // Örn: 0
+         );
+         entry.setWakeTime(wakeTime);  // 07:00
+
+    // 5️⃣️ Mood'u al
+        entry.setMood(moodComboBox.getValue());  // Örn: HAPPY
+
+
+    FXML'DE İSE = <Button text="💾 Save Entry"
+                          onAction="#handleSaveEntry" // BURADAN ÇAĞRILIYOR!
+                          styleClass="save-button"/>
+
+
+
+PARLAK GÖLGE YAPMA ARKAYA = -fx-effect: dropshadow(gaussian, rgba(232, 149, 216, 0.6), 15, 0, 0, 4);
+
+
+SOUNDSPATH ÖRNEK =  soundPaths.put("Rain", "rain");
+

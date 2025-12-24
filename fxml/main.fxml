@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.sleeptracker.controllers.MainController"
+      styleClass="root"
+      spacing="0">
+
+    <HBox styleClass="header" alignment="CENTER" spacing="20">
+        <padding>
+            <Insets top="25" bottom="25" left="30" right="30"/>
+        </padding>
+
+        <Label text="🌙 Sleepmoon" styleClass="app-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button text="⏰" styleClass="nav-button" onAction="#handleOpenAlarms"
+                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-font-size: 24px; -fx-background-radius: 20; -fx-cursor: hand; -fx-min-width: 60; -fx-min-height: 60;"/>
+
+        <Button text="📊" styleClass="nav-button" onAction="#handleOpenStats"
+                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-font-size: 24px; -fx-background-radius: 20; -fx-cursor: hand; -fx-min-width: 60; -fx-min-height: 60;"/>
+
+        <Button text="🎵" styleClass="nav-button" onAction="#handleOpenNoise"
+                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-font-size: 24px; -fx-background-radius: 20; -fx-cursor: hand; -fx-min-width: 60; -fx-min-height: 60;"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" styleClass="scroll-pane" VBox.vgrow="ALWAYS">
+        <VBox spacing="25" styleClass="content-container">
+            <padding>
+                <Insets top="30" bottom="30" left="30" right="30"/>
+            </padding>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="📅 Date" styleClass="section-title"/>
+                <DatePicker fx:id="datePicker" styleClass="date-picker" prefWidth="Infinity"/>
+            </VBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="🛏️ Bed Time" styleClass="section-title"/>
+                <HBox spacing="15" alignment="CENTER">
+                    <Spinner fx:id="bedHourSpinner" styleClass="time-spinner" prefWidth="100"/>
+                    <Label text=":" style="-fx-font-size: 32px; -fx-text-fill: white; -fx-font-weight: 700;"/>
+                    <Spinner fx:id="bedMinuteSpinner" styleClass="time-spinner" prefWidth="100"/>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="⏰ Wake Time" styleClass="section-title"/>
+                <HBox spacing="15" alignment="CENTER">
+                    <Spinner fx:id="wakeHourSpinner" styleClass="time-spinner" prefWidth="100"/>
+                    <Label text=":" style="-fx-font-size: 32px; -fx-text-fill: white; -fx-font-weight: 700;"/>
+                    <Spinner fx:id="wakeMinuteSpinner" styleClass="time-spinner" prefWidth="100"/>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="✨ Sleep Quality" styleClass="section-title"/>
+                <VBox alignment="CENTER" spacing="10">
+                    <Label fx:id="qualityLabel" text="⭐⭐⭐ (3/5)" styleClass="quality-label"/>
+                    <Slider fx:id="qualitySlider" min="1" max="5" value="3"
+                            majorTickUnit="1" minorTickCount="0"
+                            snapToTicks="true" showTickMarks="true" showTickLabels="true"
+                            styleClass="quality-slider" prefWidth="Infinity"/>
+                </VBox>
+            </VBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="😊 Morning Mood" styleClass="section-title"/>
+                <ComboBox fx:id="moodComboBox" styleClass="mood-combo" prefWidth="Infinity"/>
+            </VBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="📝 Notes" styleClass="section-title"/>
+                <TextArea fx:id="notesArea" styleClass="notes-area"
+                          promptText="How did you sleep? Any dreams?"
+                          prefRowCount="4" wrapText="true"/>
+            </VBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="💾 Save Entry" styleClass="save-button" onAction="#handleSaveEntry" prefWidth="200" prefHeight="56"/>
+                <Button text="🗑️ Clear" styleClass="clear-button" onAction="#handleClear" prefWidth="120" prefHeight="56"/>
+            </HBox>
+
+            <VBox styleClass="card" spacing="20">
+                <Label text="📜 Recent Entries" styleClass="section-title"/>
+                <ListView fx:id="recentEntriesListView" styleClass="recent-list" prefHeight="300"
+                          style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.sleeptracker.controllers.NoiseController"
+            styleClass="root">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="20" bottom="20" left="30" right="30"/>
+            </padding>
+
+            <!-- BACK BUTTON EKLE -->
+            <Button text="← Back" onAction="#handleClose" styleClass="back-button"/>
+
+            <Label text="🎵 White Noise Player" styleClass="app-title">
+                <font>
+                    <Font name="System" size="28"/>
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <!-- Center - Sound Selection -->
+    <center>
+        <VBox spacing="30" alignment="CENTER" styleClass="content-container">
+            <padding>
+                <Insets top="40" bottom="40" left="40" right="40"/>
+            </padding>
+
+            <GridPane hgap="15" vgap="15" alignment="CENTER">
+                <!-- Satır 0 -->
+                <Button fx:id="rainButton" text="🌧️ Rain"
+                        onAction="#handleRain"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+                <Button fx:id="oceanButton" text="🌊 Ocean"
+                        onAction="#handleOcean"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Button fx:id="forestButton" text="🌲 Forest"
+                        onAction="#handleForest"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                <!-- Satır 1 -->
+                <Button fx:id="fireplaceButton" text="🔥 Fireplace"
+                        onAction="#handleFireplace"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                <Button fx:id="whiteNoiseButton" text="☁️ White Noise"
+                        onAction="#handleWhiteNoise"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Button fx:id="brownNoiseButton" text="💨 Brown Noise"
+                        onAction="#handleBrownNoise"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                <!-- Satır 2 -->
+                <Button fx:id="cityButton" text="🏙️ City"
+                        onAction="#handleCity"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+                <Button fx:id="cafeButton" text="☕ Cafe"
+                        onAction="#handleCafe"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Button fx:id="trainButton" text="🚂 Train"
+                        onAction="#handleTrain"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+                <!-- Satır 3 -->
+                <Button fx:id="pianoButton" text="🎹 Piano"
+                        onAction="#handlePiano"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+
+                <Button fx:id="guitarButton" text="🎸 Guitar"
+                        onAction="#handleGuitar"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Button fx:id="thunderstormButton" text="⚡ Thunderstorm"
+                        onAction="#handleThunderstorm"
+                        styleClass="sound-button"
+                        style="-fx-background-color: rgba(59, 74, 125, 0.35); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: 600; -fx-font-size: 17px; -fx-border-color: rgba(255, 255, 255, 0.15); -fx-border-width: 1; -fx-border-radius: 20;"
+                        prefWidth="180" prefHeight="70"
+                        GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            </GridPane>
+
+            <!-- Player Controls -->
+            <VBox styleClass="card" spacing="20" alignment="CENTER">
+                <padding>
+                    <Insets top="25" bottom="25" left="40" right="40"/>
+                </padding>
+
+                <Label text="Player Controls" styleClass="section-title"/>
+
+                <!-- Play/Pause/Stop -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button fx:id="playPauseButton" text="▶ Play"
+                            onAction="#handlePlayPause"
+                            styleClass="control-button"
+                            style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: 600; -fx-font-size: 16px; -fx-padding: 12 30 12 30;"
+                            prefWidth="140" prefHeight="55"/>
+
+                    <Button fx:id="stopButton" text="■ Stop"
+                            onAction="#handleStop"
+                            styleClass="control-button"
+                            style="-fx-background-color: rgba(59, 74, 125, 0.4); -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: 600; -fx-font-size: 16px; -fx-border-color: rgba(255, 255, 255, 0.25); -fx-border-width: 1.5; -fx-border-radius: 25; -fx-padding: 12 30 12 30;"
+                            prefWidth="140" prefHeight="55"/>
+                </HBox>
+
+                <!-- Volume Control -->
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="🔊 Volume" styleClass="label-small"/>
+                    <Slider fx:id="volumeSlider"
+                            min="0" max="100" value="50"
+                            showTickMarks="true"
+                            showTickLabels="true"
+                            majorTickUnit="25"
+                            minorTickCount="5"
+                            prefWidth="300"
+                            styleClass="quality-slider"/>
+                </VBox>
+
+                <!-- Sleep Timer -->
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="⏰ Sleep Timer" styleClass="label-small"/>
+                    <ComboBox fx:id="timerComboBox"
+                              onAction="#handleTimerChange"
+                              prefWidth="200"
+                              styleClass="mood-combo"/>
+                </VBox>
+            </VBox>
+
+            <!-- Status Label -->
+            <Label fx:id="statusLabel"
+                   text="Select a sound to begin"
+                   styleClass="status-label"
+                   style="-fx-font-size: 16px;"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
