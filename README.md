@@ -27,9 +27,9 @@
 ## ✨ Features
 
 ### 📊 Sleep Tracking
-- **Intuitive Entry System**: Easy-to-use spinners for bed time and wake time
+- **Entry System**: Easy-to-use spinners for bed time and wake time
 - **Automatic Duration Calculation**: Calculates total sleep hours automatically
-- **Quality Rating**: 1-5 star rating system with visual feedback
+- **Quality Rating System**: 1-5 star rating system with visual feedback
 - **Mood Tracking**: Track your morning mood with emoji indicators
 - **Personal Notes**: Add notes about your sleep experience
 
@@ -59,7 +59,7 @@
 - **Custom Date Ranges**: View stats for 7, 14, 30 days, or all time
 - **Average Calculations**: See average sleep duration and quality
 
-### 🎨 Beautiful UI Design
+### 🎨 UI Design
 - **Glassmorphism Aesthetic**: Modern, elegant card-based design
 - **Purple-Pink Gradient Theme**: Soothing color palette perfect for sleep apps
 - **Smooth Animations**: Polished transitions and effects
@@ -152,42 +152,38 @@ mvn javafx:run
 
 ## 📁 Project Structure
 
-SleepMoon/
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── org/sleeptracker/
-│       │       ├── Main.java
-│       │       ├── controllers/
-│       │       │   ├── MainController.java
-│       │       │   ├── AlarmController.java
-│       │       │   ├── StatsController.java
-│       │       │   ├── NoiseController.java
-│       │       │   └── WelcomeController.java
-│       │       ├── models/
-│       │       │   ├── SleepEntry.java
-│       │       │   ├── Alarm.java
-│       │       │   └── MoodType.java
-│       │       ├── database/
-│       │       │   └── DatabaseManager.java
-│       │       └── services/
-│       │           ├── AlarmService.java
-│       │           └── AudioPlayer.java
-│       └── resources/
-│           └── org/sleeptracker/
-│               ├── fxml/
-│               │   ├── main.fxml
-│               │   ├── alarm.fxml
-│               │   ├── stats.fxml
-│               │   ├── noise.fxml
-│               │   └── welcome.fxml
-│               ├── css/
-│               │   └── style.css
-│               └── media/
-│                   └── [audio files]
-├── pom.xml
-└── README.md
-
+SleepTracker/
+src/main/
+java/org/sleeptracker/
+Main.java
+controllers/
+- MainController.java
+- AlarmController.java
+- StatsController.java
+- NoiseController.java
+- WelcomeController.java
+models/
+- SleepEntry.java
+- Alarm.java
+- MoodType.java
+database/
+- DatabaseManager.java
+services/
+- AlarmService.java
+- AudioPlayer.java
+resources/org/sleeptracker/
+fxml/
+- main.fxml
+- alarm.fxml
+- stats.fxml
+- noise.fxml
+- welcome.fxml
+css/
+- style.css
+media/
+- [audio files]
+pom.xml
+README.md
 -----
 
 ## 🔮 Future Enhancement ideas
