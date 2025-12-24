@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.sleeptracker.controllers.AlarmController"
+            styleClass="root">
+
+    <!-- Header -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="20" bottom="20" left="30" right="30"/>
+            </padding>
+
+            <Button text="← Back" onAction="#handleClose" styleClass="back-button"/>
+
+            <Label text="⏰ Alarms" styleClass="app-title">
+                <font><Font name="System" size="28"/></font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <!-- Center - Alarm Setup -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox spacing="25" styleClass="content-container">
+                <padding>
+                    <Insets top="30" bottom="30" left="40" right="40"/>
+                </padding>
+
+                <!-- Set Alarm Card -->
+                <VBox styleClass="card" spacing="20">
+                    <padding>
+                        <Insets top="30" bottom="30" left="30" right="30"/>
+                    </padding>
+
+                    <Label text="⏰ Set Alarm" styleClass="section-title"/>
+
+                    <!-- Time Picker -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Spinner fx:id="hourSpinner" prefWidth="85" styleClass="time-spinner"/>
+                        <Label text=":" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: 700;"/>
+                        <Spinner fx:id="minuteSpinner" prefWidth="85" styleClass="time-spinner"/>
+                    </HBox>
+
+                    <!-- Alarm Name -->
+                    <TextField fx:id="alarmNameField"
+                               promptText="Alarm name (optional)"
+                               styleClass="notes-area"
+                               prefHeight="45"/>
+
+                    <!-- Sound Selection -->
+                    <VBox spacing="10">
+                        <Label text="🎵 Alarm Sound" style="-fx-text-fill: rgba(255, 255, 255, 0.9); -fx-font-size: 14px; -fx-font-weight: 600;"/>
+                        <ComboBox fx:id="soundComboBox" prefWidth="300" styleClass="mood-combo"/>
+                    </VBox>
+
+                    <!-- Repeat Days -->
+                    <VBox spacing="10">
+                        <Label text="📅 Repeat" style="-fx-text-fill: rgba(255, 255, 255, 0.9); -fx-font-size: 14px; -fx-font-weight: 600;"/>
+                        <HBox spacing="8" alignment="CENTER">
+                            <CheckBox fx:id="monCheck" text="Mon" styleClass="day-check"/>
+                            <CheckBox fx:id="tueCheck" text="Tue" styleClass="day-check"/>
+                            <CheckBox fx:id="wedCheck" text="Wed" styleClass="day-check"/>
+                            <CheckBox fx:id="thuCheck" text="Thu" styleClass="day-check"/>
+                            <CheckBox fx:id="friCheck" text="Fri" styleClass="day-check"/>
+                            <CheckBox fx:id="satCheck" text="Sat" styleClass="day-check"/>
+                            <CheckBox fx:id="sunCheck" text="Sun" styleClass="day-check"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Save Button -->
+                    <Button text="💾 Save Alarm"
+                            onAction="#handleSaveAlarm"
+                            styleClass="save-button"
+                            style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-background-radius: 28;"
+                            prefWidth="200" prefHeight="50"/>
+                </VBox>
+
+                <!-- Saved Alarms List -->
+                <VBox styleClass="card" spacing="15">
+                    <padding>
+                        <Insets top="25" bottom="25" left="25" right="25"/>
+                    </padding>
+
+                    <Label text="📋 Your Alarms" styleClass="section-title"/>
+
+                    <VBox fx:id="alarmListContainer" spacing="15"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

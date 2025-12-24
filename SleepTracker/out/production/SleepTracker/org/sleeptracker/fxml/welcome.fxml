@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.sleeptracker.controllers.WelcomeController"
+      styleClass="root"
+      alignment="CENTER"
+      spacing="40">
+
+    <padding>
+        <Insets top="80" bottom="80" left="40" right="40"/>
+    </padding>
+
+    <!-- Welcome Title -->
+    <VBox alignment="CENTER" spacing="15">
+        <Label text="🌙" styleClass="moon-emoji">
+            <font><Font size="80"/></font>
+        </Label>
+
+        <Label text="Welcome to Sleeply" styleClass="welcome-title">
+            <font><Font size="36"/></font>
+        </Label>
+
+        <Label text="Track your sleep, improve your life"
+               styleClass="welcome-subtitle"
+               style="-fx-text-fill: rgba(255, 255, 255, 0.7); -fx-font-size: 16px;"/>
+    </VBox>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- Name Input Card -->
+    <VBox styleClass="card" spacing="20" alignment="CENTER">
+        <padding>
+            <Insets top="40" bottom="40" left="40" right="40"/>
+        </padding>
+
+        <Label text="What's your name?" styleClass="section-title">
+            <font><Font size="24"/></font>
+        </Label>
+
+        <TextField fx:id="nameField"
+                   promptText="Enter your name..."
+                   styleClass="name-input"
+                   prefWidth="300"
+                   alignment="CENTER"
+                   style="-fx-font-size: 18px; -fx-background-color: rgba(59, 74, 125, 0.3); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 15; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 20; -fx-border-width: 1.5;"/>
+
+        <Button fx:id="continueButton"
+                text="Continue ✨"
+                onAction="#handleContinue"
+                styleClass="save-button"
+                style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #e895d8, #9c7bea); -fx-text-fill: white; -fx-background-radius: 25; -fx-font-size: 18px; -fx-font-weight: 600; -fx-padding: 15 50 15 50;"
+                prefWidth="250"/>
+    </VBox>
+
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+</VBox>
